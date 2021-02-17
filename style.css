@@ -55,7 +55,10 @@ h3{
 .card, .dropzone{
     transition: .4s
 }
-is-dragging{
-    cursor:nove;
-    opacity: .1;
+.is-dragging{
+    cursor:move;
+    opacity: .3;
+}
+.over{
+    background:#4cd13731;
 }

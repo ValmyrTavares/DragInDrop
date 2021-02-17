@@ -6,9 +6,9 @@ export default class OutroDrag{
 
 
     addEvent(){
-        this.cards.forEach(item=>{
+        this.cards.forEach((item,index)=>{
             item.addEventListener('dragstart',()=>{
-                this.dragstart()
+                this.dragstart(index)
             })
         })
         this.cards.forEach(item=>{
@@ -26,9 +26,9 @@ export default class OutroDrag{
                 this.dragenter()
             })
         })
-        this.dropzones.forEach(item=>{
+        this.dropzones.forEach((item,index)=>{
             item.addEventListener('dragover',()=>{
-                this.dragover()
+                this.dragover(index)
             })
         })
         this.dropzones.forEach(item=>{
@@ -43,9 +43,10 @@ export default class OutroDrag{
         })
     }
 
-        dragstart(){
+        dragstart(index){
            this.dropzones.forEach(dropzone => dropzone.classList.add("highlight"))
-           this.cards.forEach((item, index)=> item[index].classList.add('.is-dragging'))
+        //    this.cards.forEach((item, index)=> item[index].classList.add('.is-dragging'))
+        this.cards[index].classList.add("is-dragging")
         }
         drag(){
             console.log("drag")
@@ -54,19 +55,23 @@ export default class OutroDrag{
 
         dragend(){
             this.dropzones.forEach(dropzone => dropzone.classList.remove("highlight"))
-            this.cards.forEach((item, index)=> item[index].classList.remove('.is-dragging'))
+            this.cards.forEach(item => item.classList.remove("is-dragging"))
+            
         }
         dragenter(){
-            console.log("dragenter")
+            // console.log("dragenter")
         }
-        dragover(){
-            console.log("dragover")
+        dragover(index){
+           this.dropzones[index].classList.add("over")
+           this.cardBeingDragged = document.querySelector(".is-dragging")
+           this.selectDropZone = document.querySelector(".over")
+           this.selectDropZone.appendChild(this.cardBeingDragged)
         }
         dragleave(){
-            console.log("dragleave")
+            this.dropzones.forEach(item => item.classList.remove("over"))
         }
         drop(){
-            console.log("drop")
+            //console.log("drop")
         }
 
 
