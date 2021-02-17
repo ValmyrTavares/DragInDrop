@@ -1,0 +1,61 @@
+html{
+    font-family:nunito;
+}
+body{
+    background-color:#130f0d;
+    color:white
+}
+.boards{
+    display: flex;
+    justify-content: space-around;
+}
+.board{
+    background:black;
+    border:solid 1px red;
+    border-radius:4px;
+    padding:15px;
+}
+h3{
+    color:orange;
+}
+.dropzone{
+    padding: 16px;
+    background: gray;
+    min-height: 200px;
+    min-width: 282px;
+}
+.card{
+    padding: 16px;
+    box-shadow: 0 2px 2px -1px black;
+    width: 250px;
+    margin: 25px 0;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size:18px;
+    background: #857474;
+}
+.status{
+    width:30px;
+    height: 8px;
+    background:gray;
+    margin-bottom:16px ;
+}
+.status.green{
+    background:greenyellow;
+}
+.status.red{
+    background:red;
+}
+.status.yellow{
+    background:yellow;
+}
+.highlight{
+    background:#FD951F08;
+}
+.card, .dropzone{
+    transition: .4s
+}
+is-dragging{
+    cursor:nove;
+    opacity: .1;
+}
